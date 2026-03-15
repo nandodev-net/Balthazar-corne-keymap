@@ -42,22 +42,23 @@ The `.uf2` file will be located at `qmk_firmware/.build/`
 
 The foundation. Standard Dvorak layout — home row carries the most frequent English letters (`A O E U I` left / `D H T N S` right), dramatically reducing finger travel. Key ergonomic decisions:
 
-- **`LSFT_T(TAB)`** on the left pinky home row — tap for Tab, hold for Shift. In Dvorak the pinky already carries `A`, so Shift lives naturally at rest position.
-- **`ESC`** at top-left — more accessible than buried in a layer.
-- **`RSFT`** at bottom-right — explicit right shift available when needed.
+- **`KC_LSFT`** on the left pinky home row — plain Shift, no tap/hold ambiguity. Reliable for fast typing.
+- **`ESC`** at top-left — accessible without leaving the base layer.
+- **`ENT`** on right pinky home row — no stretch needed.
+- **`-`** at bottom-right — `'` is already in the Dvorak top row, so `-` takes that slot instead.
+- Tab moves to the right thumb — natural as a tap, doubles as Symbols layer on hold.
 - Left inner thumb doubles as Numpad access via hold.
 
 ```
 ESC   '   ,   .   P   Y  |  F   G   C   R   L   BSP
-SFT†  A   O   E   U   I  |  D   H   T   N   S   -
-CTL   ;   Q   J   K   X  |  B   M   W   V   Z   RSFT
-          GUI MO(1) LT(3,SPC) | SPC LT(2,ENT) ALT
+SFT   A   O   E   U   I  |  D   H   T   N   S   ENT
+CTL   ;   Q   J   K   X  |  B   M   W   V   Z   -
+          GUI MO(1) LT(3,SPC) | SPC LT(2,TAB) ALT
 ```
-† `SFT` = `LSFT_T(TAB)` — tap → Tab / hold → Left Shift
 
 **Thumb cluster:**
 - Left: `GUI` · `MO(1)` (hold → Navigate) · `LT(3, Space)` (tap → Space / hold → Numpad)
-- Right: `Space` · `LT(2, Enter)` (tap → Enter / hold → Symbols) · `Alt`
+- Right: `Space` · `LT(2, Tab)` (tap → Tab / hold → Symbols) · `Alt`
 
 ---
 
@@ -84,7 +85,7 @@ BRD  BRU  ·    ·    ·  VOL-  | VOL+ |<< >/|| >>|   ·    END
 
 ### Layer 2 — Symbols
 
-Hold right thumb `LT(2, Enter)` to activate. Left hand free.
+Hold right thumb `LT(2, Tab)` to activate. Left hand free.
 
 ```
  _   !   @   (   )   %  |  *   &   ^   <   >  BSP
@@ -159,9 +160,12 @@ Layer states use QMK bitmask convention (powers of 2).
 | Feature | QWERTY | Dvorak |
 |---|---|---|
 | Base layout | Standard QWERTY | Standard Dvorak |
-| Left pinky home | `Shift` | `LSFT_T(TAB)` (tap=Tab / hold=Shift) |
-| Top-left | `TAB` | `ESC` |
-| Bottom-right | `ESC` | `RSFT` |
+| Left pinky home | `KC_LSFT` | `KC_LSFT` |
+| Top-left | `ESC` | `ESC` |
+| Right pinky home | `ENT` | `ENT` |
+| Bottom-right | `'` (quote) | `-` (minus) — quote is in top row |
+| Right thumb tap | `Tab` | `Tab` |
+| Right thumb hold | `Symbols` | `Symbols` |
 | Finger travel | Standard | Reduced — home row covers ~70% of keystrokes |
 
 ---

@@ -40,18 +40,18 @@ The `.uf2` file will be located at `qmk_firmware/.build/`
 
 ### Layer 0 — QWERTY
 
-The foundation. Standard QWERTY layout with intentional ergonomic decisions: **Shift on the home row** (pinky rests naturally), **Ctrl on the bottom row** (eliminates the chronic stretch). Left inner thumb doubles as Numpad access via hold.
+The foundation. Standard QWERTY layout with intentional ergonomic decisions: **Shift on the home row** (pinky rests naturally, no tap/hold ambiguity), **Ctrl on the bottom row** (eliminates the chronic stretch), **Enter on the home row right pinky** (no more stretching to reach it). Tab moves to the right thumb — more natural as a tap, and doubles as Symbols layer access on hold.
 
 ```
-TAB   Q   W   E   R   T  |  Y   U   I   O   P   BSP
-SFT   A   S   D   F   G  |  H   J   K   L   ;   '
-CTL   Z   X   C   V   B  |  N   M   ,   .   /   ESC
-        GUI MO(1) LT(3,SPC) | SPC LT(2,ENT) ALT
+ESC   Q   W   E   R   T  |  Y   U   I   O   P   BSP
+SFT   A   S   D   F   G  |  H   J   K   L   ;   ENT
+CTL   Z   X   C   V   B  |  N   M   ,   .   /   '
+        GUI MO(1) LT(3,SPC) | SPC LT(2,TAB) ALT
 ```
 
 **Thumb cluster:**
 - Left: `GUI` · `MO(1)` (hold → Navigate) · `LT(3, Space)` (tap → Space / hold → Numpad)
-- Right: `Space` · `LT(2, Enter)` (tap → Enter / hold → Symbols) · `Alt`
+- Right: `Space` · `LT(2, Tab)` (tap → Tab / hold → Symbols) · `Alt`
 
 ---
 
@@ -78,7 +78,7 @@ BRD  BRU  ·    ·    ·  VOL-  | VOL+ |<< >/|| >>|   ·    END
 
 ### Layer 2 — Symbols
 
-Hold right thumb `LT(2, Enter)` to activate. Left hand free.
+Hold right thumb `LT(2, Tab)` to activate. Left hand free.
 
 ```
  _   !   @   (   )   %  |  *   &   ^   <   >  BSP

@@ -25,19 +25,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define L_RGB      16
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+  // -----------------------------------------------------------------------
+  // LAYER 0 - DVORAK
+  // Base layer. Home row carries most frequent English letters.
+  // Left pinky: plain Shift - no tap/hold ambiguity.
+  // Right pinky home: Enter - no stretch needed.
+  // Bottom right: - (minus) - ' is already in top row in Dvorak.
+  // Left thumb:  GUI | Navigate(hold) | Space/Numpad(hold)
+  // Right thumb: Space | Tab/Symbols(hold) | Alt
+  // -----------------------------------------------------------------------
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC, KC_QUOT, KC_COMM,  KC_DOT,    KC_P,    KC_Y,                         KC_F,    KC_G,    KC_C,    KC_R,    KC_L,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-LSFT_T(KC_TAB),   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                         KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_MINS,
+      KC_LSFT,   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                         KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LCTL, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_RSFT,
+      KC_LCTL, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_MINS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(1),  LT(3,KC_SPC),     KC_SPC,   LT(2,KC_ENT), KC_RALT
+                                          KC_LGUI,   MO(1),  LT(3,KC_SPC),     KC_SPC,   LT(2,KC_TAB), KC_RALT
                                       //`--------------------------'  `--------------------------'
-
   ),
 
+  // -----------------------------------------------------------------------
+  // LAYER 1 - NAVIGATE
+  // Hold left middle thumb (MO1). Right hand: arrows, page, media.
+  // Left home row: modifier keys (Shift / Alt / Ctrl) for selections.
+  // Bottom left: brightness / volume. Right col: BSP / DEL / END.
+  // Right inner thumb activates RGB layer (MO4).
+  // -----------------------------------------------------------------------
     [1] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_TAB, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, XXXXXXX, KC_PGDN, KC_PGUP, KC_PSCR,  KC_BSPC,
@@ -50,6 +66,13 @@ LSFT_T(KC_TAB),   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                     
                                       //`--------------------------'  `--------------------------'
   ),
 
+  // -----------------------------------------------------------------------
+  // LAYER 2 - SYMBOLS
+  // Hold right inner thumb LT(2,TAB). Left hand types symbols.
+  // Brackets stacked vertically: () {} [] cols 4-5.
+  // Right hand: hash / backslash / slash / pipe / $ / backtick
+  // Left thumb MO(3) gives access to Numpad while on this layer.
+  // -----------------------------------------------------------------------
     [2] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       KC_UNDS, KC_EXLM,   KC_AT, KC_LPRN, KC_RPRN, KC_PERC,                      KC_ASTR, KC_AMPR, KC_CIRC,   KC_LT,   KC_GT, KC_BSPC,
@@ -62,6 +85,13 @@ LSFT_T(KC_TAB),   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                     
                                       //`--------------------------'  `--------------------------'
   ),
 
+  // -----------------------------------------------------------------------
+  // LAYER 3 - NUMPAD + F-KEYS
+  // Hold left inner thumb LT(3,SPC) from base, or MO(3) from Symbols.
+  // Left hand: F1-F12 across two rows.
+  // Right hand: classic numpad layout (7-8-9 / 4-5-6 / 1-2-3).
+  // Right thumb: 0 - most used digit at most accessible position.
+  // -----------------------------------------------------------------------
     [3] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                      KC_PLUS,    KC_7,    KC_8,    KC_9, KC_MINS, KC_BSPC,
@@ -73,6 +103,13 @@ LSFT_T(KC_TAB),   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                     
                                           KC_LGUI, _______,  KC_SPC,     KC_ENT, _______, KC_0
                                       //`--------------------------'  `--------------------------'
   ),
+
+  // -----------------------------------------------------------------------
+  // LAYER 4 - RGB
+  // Hold right inner thumb MO(4) while on Navigate (Layer 1).
+  // Left home row: toggle / hue / sat / val (up row) / next / down row.
+  // QK_BOOT at inner top corners - requires deliberate movement.
+  // -----------------------------------------------------------------------
     [4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,                      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
