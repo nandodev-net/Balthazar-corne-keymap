@@ -42,23 +42,22 @@ The `.uf2` file will be located at `qmk_firmware/.build/`
 
 The foundation. Standard Dvorak layout — home row carries the most frequent English letters (`A O E U I` left / `D H T N S` right), dramatically reducing finger travel. Key ergonomic decisions:
 
-- **`KC_LSFT`** on the left pinky home row — plain Shift, no tap/hold ambiguity. Reliable for fast typing.
+- **`LSFT_T(Tab)`** on the left pinky home row — tap = Tab / hold = Shift. Tab on home row without losing Shift.
 - **`ESC`** at top-left — accessible without leaving the base layer.
 - **`ENT`** on right pinky home row — no stretch needed.
 - **`-`** at bottom-right — `'` is already in the Dvorak top row, so `-` takes that slot instead.
-- Tab moves to the right thumb — natural as a tap, doubles as Symbols layer on hold.
 - Left inner thumb doubles as Numpad access via hold.
 
 ```
 ESC   '   ,   .   P   Y  |  F   G   C   R   L   BSP
-SFT   A   O   E   U   I  |  D   H   T   N   S   ENT
+TAB/SFT A O   E   U   I  |  D   H   T   N   S   ENT
 CTL   ;   Q   J   K   X  |  B   M   W   V   Z   -
-          GUI MO(1) LT(3,SPC) | SPC LT(2,TAB) ALT
+          GUI MO(1) LT(3,SPC) | SPC MO(2) ALT
 ```
 
 **Thumb cluster:**
 - Left: `GUI` · `MO(1)` (hold → Navigate) · `LT(3, Space)` (tap → Space / hold → Numpad)
-- Right: `Space` · `LT(2, Tab)` (tap → Tab / hold → Symbols) · `Alt`
+- Right: `Space` · `MO(2)` (hold → Symbols) · `Alt`
 
 ---
 
@@ -85,7 +84,7 @@ BRD  BRU  ·    ·    ·  VOL-  | VOL+ |<< >/|| >>|   ·    END
 
 ### Layer 2 — Symbols
 
-Hold right thumb `LT(2, Tab)` to activate. Left hand free.
+Hold right thumb `MO(2)` to activate. Left hand free.
 
 ```
  _   !   @   (   )   %  |  *   &   ^   <   >  BSP
@@ -160,12 +159,11 @@ Layer states use QMK bitmask convention (powers of 2).
 | Feature | QWERTY | Dvorak |
 |---|---|---|
 | Base layout | Standard QWERTY | Standard Dvorak |
-| Left pinky home | `KC_LSFT` | `KC_LSFT` |
+| Left pinky home | `LSFT_T(Tab)` — tap=Tab / hold=Shift | `LSFT_T(Tab)` — tap=Tab / hold=Shift |
 | Top-left | `ESC` | `ESC` |
 | Right pinky home | `ENT` | `ENT` |
 | Bottom-right | `'` (quote) | `-` (minus) — quote is in top row |
-| Right thumb tap | `Tab` | `Tab` |
-| Right thumb hold | `Symbols` | `Symbols` |
+| Right thumb inner | `MO(2)` — hold=Symbols | `MO(2)` — hold=Symbols |
 | Finger travel | Standard | Reduced — home row covers ~70% of keystrokes |
 
 ---

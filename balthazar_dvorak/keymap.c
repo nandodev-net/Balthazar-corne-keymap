@@ -29,21 +29,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // -----------------------------------------------------------------------
   // LAYER 0 - DVORAK
   // Base layer. Home row carries most frequent English letters.
-  // Left pinky: plain Shift - no tap/hold ambiguity.
+  // Left pinky: LSFT_T(TAB) - tap=Tab / hold=Shift.
   // Right pinky home: Enter - no stretch needed.
   // Bottom right: - (minus) - ' is already in top row in Dvorak.
   // Left thumb:  GUI | Navigate(hold) | Space/Numpad(hold)
-  // Right thumb: Space | Tab/Symbols(hold) | Alt
+  // Right thumb: Space | Symbols(hold) | Alt
   // -----------------------------------------------------------------------
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
        KC_ESC, KC_QUOT, KC_COMM,  KC_DOT,    KC_P,    KC_Y,                         KC_F,    KC_G,    KC_C,    KC_R,    KC_L,  KC_BSPC,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT,   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                         KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_ENT,
+  LSFT_T(KC_TAB),   KC_A,    KC_O,    KC_E,    KC_U,    KC_I,                         KC_D,    KC_H,    KC_T,    KC_N,    KC_S, KC_ENT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, KC_SCLN,    KC_Q,    KC_J,    KC_K,    KC_X,                         KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,  KC_MINS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,   MO(1),  LT(3,KC_SPC),     KC_SPC,   LT(2,KC_TAB), KC_RALT
+                                          KC_LGUI,   MO(1),  LT(3,KC_SPC),     KC_SPC,   MO(2), KC_RALT
                                       //`--------------------------'  `--------------------------'
   ),
 
